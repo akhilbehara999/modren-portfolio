@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pondara Akhil Behara - Bioluminescent Deep Sea Portfolio">
+    <meta name="theme-color" content="#00fff7">
+    <title>Akhil Behara | Deep Sea Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Ocean Layers -->
+    <div class="ocean-environment">
+        <canvas id="deep-sea-canvas"></canvas>
+        <div class="caustic-light"></div>
+        <div class="water-overlay"></div>
+    </div>
+
+    <!-- Depth Indicator -->
+    <div class="depth-gauge">
+        <div class="depth-meter">
+            <div class="depth-fill"></div>
+        </div>
+        <div class="depth-info">
+            <span class="depth-value">0</span>
+            <span class="depth-unit">m</span>
+        </div>
+        <div class="depth-zone">Surface</div>
+    </div>
+
+    <!-- Bioluminescent Cursor Trail -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Loading Screen -->
+    <div class="dive-loader" id="diveLoader">
+        <div class="loader-submarine">
+            <div class="submarine-body">
+                <div class="submarine-window"></div>
+                <div class="submarine-light"></div>
+            </div>
+            <div class="submarine-bubbles">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="loader-text">
+            <span>P</span><span>R</span><span>E</span><span>P</span><span>A</span><span>R</span><span>I</span><span>N</span><span>G</span>
+            <span>&nbsp;</span>
+            <span>T</span><span>O</span>
+            <span>&nbsp;</span>
+            <span>D</span><span>I</span><span>V</span><span>E</span>
+        </div>
+        <div class="loader-progress">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Jellyfish -->
+    <nav class="jellyfish-nav">
+        <a href="#surface" class="jelly-link active" data-zone="Surface">
+            <div class="jelly-body">
+                <div class="jelly-glow"></div>
+            </div>
+            <div class="jelly-tentacles">
+                <span></span><span></span><span></span>
+            </div>
+        </a>
+        <a href="#twilight" class="jelly-link" data-zone="Twilight">
+            <div class="jelly-body">
+                <div class="jelly-glow"></div>
+            </div>
+            <div class="jelly-tentacles">
+                <span></span><span></span><span></span>
+            </div>
+        </a>
+        <a href="#midnight" class="jelly-link" data-zone="Midnight">
+            <div class="jelly-body">
+                <div class="jelly-glow"></div>
+            </div>
+            <div class="jelly-tentacles">
+                <span></span><span></span><span></span>
+            </div>
+        </a>
+        <a href="#abyss" class="jelly-link" data-zone="Abyss">
+            <div class="jelly-body">
+                <div class="jelly-glow"></div>
+            </div>
+            <div class="jelly-tentacles">
+                <span></span><span></span><span></span>
+            </div>
+        </a>
+        <a href="#hadal" class="jelly-link" data-zone="Hadal">
+            <div class="jelly-body">
+                <div class="jelly-glow"></div>
+            </div>
+            <div class="jelly-tentacles">
+                <span></span><span></span><span></span>
+            </div>
+        </a>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <a href="#surface" class="mobile-nav-item active">🌊</a>
+        <a href="#twilight" class="mobile-nav-item">🐚</a>
+        <a href="#midnight" class="mobile-nav-item">🦑</a>
+        <a href="#abyss" class="mobile-nav-item">🐙</a>
+        <a href="#hadal" class="mobile-nav-item">💎</a>
+    </nav>
+
+    <!-- Main Ocean Content -->
+    <main class="ocean-depths">
+        
+        <!-- Surface Zone (Hero) - 0-200m -->
+        <section id="surface" class="depth-zone surface-zone">
+            <div class="zone-content">
+                <div class="sun-rays"></div>
+                <div class="hero-bubble-stream">
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                    <span class="bubble"></span>
+                </div>
+                
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="sonar-ping"></span>
+                        <span>Signal Detected</span>
+                    </div>
+                    <h1 class="hero-name">
+                        <span class="wave-text" data-text="Pondara">Pondara</span>
+                        <span class="wave-text" data-text="Akhil">Akhil</span>
+                        <span class="wave-text" data-text="Behara">Behara</span>
+                    </h1>
+                    <div class="hero-title">
+                        <span class="blink-cursor">&gt;</span>
+                        <span class="typing-ocean"></span>
+                    </div>
+                    <p class="hero-description">
+                        Diving deep into the world of code, exploring the mysteries of 
+                        AI and game development. BTech student navigating the digital ocean.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#abyss" class="sea-button primary">
+                            <span class="button-glow"></span>
+                            <span class="button-text">Explore Projects</span>
+                            <span class="button-bubbles">
+                                <i></i><i></i><i></i>
+                            </span>
+                        </a>
+                        <a href="#hadal" class="sea-button secondary">
+                            <span class="button-text">Send Signal</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="dive-indicator">
+                    <div class="diver-icon">🤿</div>
+                    <span>Scroll to dive deeper</span>
+                    <div class="dive-arrow">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Twilight Zone (About) - 200-1000m -->
+        <section id="twilight" class="depth-zone twilight-zone">
+            <div class="zone-content">
+                <div class="zone-header">
+                    <span class="zone-depth">200m - 1000m</span>
+                    <h2 class="zone-title">
+                        <span class="glow-letter">T</span>
+                        <span class="glow-letter">W</span>
+                        <span class="glow-letter">I</span>
+                        <span class="glow-letter">L</span>
+                        <span class="glow-letter">I</span>
+                        <span class="glow-letter">G</span>
+                        <span class="glow-letter">H</span>
+                        <span class="glow-letter">T</span>
+                        <span class="glow-letter">&nbsp;</span>
+                        <span class="glow-letter">Z</span>
+                        <span class="glow-letter">O</span>
+                        <span class="glow-letter">N</span>
+                        <span class="glow-letter">E</span>
+                    </h2>
+                    <p class="zone-subtitle">// Identity Discovery</p>
+                </div>
+
+                <div class="about-grid">
+                    <div class="bio-chamber">
+                        <div class="chamber-glass">
+                            <div class="chamber-liquid"></div>
+                            <div class="chamber-bubbles">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="chamber-content">
+                            <h3>Specimen Data</h3>
+                            <div class="specimen-text">
+                                Hello! I'm Pondara Akhil Behara, a passionate BTech student 
+                                specializing in Artificial Intelligence and Data Science at 
+                                Chaitanya Engineering College. Like a deep-sea explorer, I'm 
+                                constantly diving into new technologies and discovering the 
+                                wonders of code.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-capsules">
+                        <div class="capsule">
+                            <div class="capsule-icon">📍</div>
+                            <div class="capsule-data">
+                                <span class="capsule-label">Current Coordinates</span>
+                                <span class="capsule-value">Vishakhapatnam, India</span>
+                            </div>
+                        </div>
+                        <div class="capsule">
+                            <div class="capsule-icon">🏠</div>
+                            <div class="capsule-data">
+                                <span class="capsule-label">Origin Point</span>
+                                <span class="capsule-value">Baruva, Srikakulam</span>
+                            </div>
+                        </div>
+                        <div class="capsule">
+                            <div class="capsule-icon">🎓</div>
+                            <div class="capsule-data">
+                                <span class="capsule-label">Education Stream</span>
+                                <span class="capsule-value">BTech AI&DS (2028)</span>
+                            </div>
+                        </div>
+                        <div class="capsule">
+                            <div class="capsule-icon">🎯</div>
+                            <div class="capsule-data">
+                                <span class="capsule-label">Mission</span>
+                                <span class="capsule-value">Game Dev & AI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="interest-reef">
+                    <h3 class="reef-title">Interest Coral Reef</h3>
+                    <div class="coral-cluster">
+                        <div class="coral" style="--coral-color: #00fff7;">🎮 Gaming</div>
+                        <div class="coral" style="--coral-color: #ff00ff;">🤖 AI Testing</div>
+                        <div class="coral" style="--coral-color: #39ff14;">🏸 Badminton</div>
+                        <div class="coral" style="--coral-color: #0080ff;">♟️ Chess</div>
+                        <div class="coral" style="--coral-color: #ff1493;">📚 Reading</div>
+                        <div class="coral" style="--coral-color: #9d4edd;">💡 Problem Solving</div>
+                        <div class="coral" style="--coral-color: #00fff7;">🏃 Running</div>
+                        <div class="coral" style="--coral-color: #ff00ff;">🎯 Storytelling</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Midnight Zone (Skills) - 1000-4000m -->
+        <section id="midnight" class="depth-zone midnight-zone">
+            <div class="zone-content">
+                <div class="zone-header">
+                    <span class="zone-depth">1000m - 4000m</span>
+                    <h2 class="zone-title">
+                        <span class="glow-letter">M</span>
+                        <span class="glow-letter">I</span>
+                        <span class="glow-letter">D</span>
+                        <span class="glow-letter">N</span>
+                        <span class="glow-letter">I</span>
+                        <span class="glow-letter">G</span>
+                        <span class="glow-letter">H</span>
+                        <span class="glow-letter">T</span>
+                        <span class="glow-letter">&nbsp;</span>
+                        <span class="glow-letter">Z</span>
+                        <span class="glow-letter">O</span>
+                        <span class="glow-letter">N</span>
+                        <span class="glow-letter">E</span>
+                    </h2>
+                    <p class="zone-subtitle">// Skill Bioluminescence</p>
+                </div>
+
+                <div class="skill-ocean">
+                    <div class="skill-creature" data-category="Languages">
+                        <div class="creature-body">
+                            <div class="creature-glow"></div>
+                            <div class="creature-eye"></div>
+                        </div>
+                        <div class="creature-info">
+                            <h4>Programming Languages</h4>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">JavaScript</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="92"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Python</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="88"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Java</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="75"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">GDScript</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="70"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">70%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-creature" data-category="Web">
+                        <div class="creature-body">
+                            <div class="creature-glow"></div>
+                            <div class="creature-eye"></div>
+                        </div>
+                        <div class="creature-info">
+                            <h4>Web Technologies</h4>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">HTML/CSS</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="95"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">React</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="85"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Node.js</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="80"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">MongoDB</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="78"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">78%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-creature" data-category="AI">
+                        <div class="creature-body">
+                            <div class="creature-glow"></div>
+                            <div class="creature-eye"></div>
+                        </div>
+                        <div class="creature-info">
+                            <h4>AI/ML Technologies</h4>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">AI Experimentation</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="88"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">88%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Model Testing</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="82"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">82%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Performance Optimization</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="75"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-creature" data-category="Tools">
+                        <div class="creature-body">
+                            <div class="creature-glow"></div>
+                            <div class="creature-eye"></div>
+                        </div>
+                        <div class="creature-info">
+                            <h4>Tools & Soft Skills</h4>
+                            <div class="skill-bars">
+                                <div class="skill-bar">
+                                    <span class="skill-name">Git & VS Code</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="90"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Godot Engine</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="78"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">78%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Problem Solving</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="92"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">92%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <span class="skill-name">Creativity</span>
+                                    <div class="bar-container">
+                                        <div class="bar-fill" data-level="95"></div>
+                                        <div class="bar-glow"></div>
+                                    </div>
+                                    <span class="skill-percent">95%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Abyssal Zone (Projects) - 4000-6000m -->
+        <section id="abyss" class="depth-zone abyss-zone">
+            <div class="zone-content">
+                <div class="zone-header">
+                    <span class="zone-depth">4000m - 6000m</span>
+                    <h2 class="zone-title">
+                        <span class="glow-letter">A</span>
+                        <span class="glow-letter">B</span>
+                        <span class="glow-letter">Y</span>
+                        <span class="glow-letter">S</span>
+                        <span class="glow-letter">S</span>
+                        <span class="glow-letter">A</span>
+                        <span class="glow-letter">L</span>
+                        <span class="glow-letter">&nbsp;</span>
+                        <span class="glow-letter">Z</span>
+                        <span class="glow-letter">O</span>
+                        <span class="glow-letter">N</span>
+                        <span class="glow-letter">E</span>
+                    </h2>
+                    <p class="zone-subtitle">// Project Discoveries</p>
+                </div>
+
+                <div class="treasure-grid" id="projectGrid">
+                    <!-- Projects loaded dynamically from GitHub -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Hadal Zone (Contact) - 6000m+ -->
+        <section id="hadal" class="depth-zone hadal-zone">
+            <div class="zone-content">
+                <div class="zone-header">
+                    <span class="zone-depth">6000m+ DEEPEST POINT</span>
+                    <h2 class="zone-title">
+                        <span class="glow-letter">H</span>
+                        <span class="glow-letter">A</span>
+                        <span class="glow-letter">D</span>
+                        <span class="glow-letter">A</span>
+                        <span class="glow-letter">L</span>
+                        <span class="glow-letter">&nbsp;</span>
+                        <span class="glow-letter">Z</span>
+                        <span class="glow-letter">O</span>
+                        <span class="glow-letter">N</span>
+                        <span class="glow-letter">E</span>
+                    </h2>
+                    <p class="zone-subtitle">// Signal Transmission</p>
+                </div>
+
+                <div class="contact-trench">
+                    <div class="signal-station">
+                        <h3>📡 Direct Frequencies</h3>
+                        <div class="frequency-list">
+                            <a href="mailto:akhilbehara97@gmail.com" class="frequency-item">
+                                <div class="frequency-wave">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="frequency-data">
+                                    <span class="freq-label">Email Signal</span>
+                                    <span class="freq-value">akhilbehara97@gmail.com</span>
+                                </div>
+                            </a>
+                            <a href="https://github.com/akhilbehara999" target="_blank" class="frequency-item">
+                                <div class="frequency-wave">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="frequency-data">
+                                    <span class="freq-label">GitHub Beacon</span>
+                                    <span class="freq-value">@akhilbehara999</span>
+                                </div>
+                            </a>
+                            <a href="https://linkedin.com/in/akhilbehara999" target="_blank" class="frequency-item">
+                                <div class="frequency-wave">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="frequency-data">
+                                    <span class="freq-label">LinkedIn Sonar</span>
+                                    <span class="freq-value">LinkedIn Profile</span>
+                                </div>
+                            </a>
+                            <a href="https://instagram.com/akhil_majunu" target="_blank" class="frequency-item">
+                                <div class="frequency-wave">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="frequency-data">
+                                    <span class="freq-label">Instagram Wave</span>
+                                    <span class="freq-value">@akhil_majunu</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <form class="message-pod" id="contactForm">
+                        <h3>🫧 Send Bubble Message</h3>
+                        <div class="pod-field">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Your Name</label>
+                            <div class="field-bubbles"><span></span><span></span></div>
+                        </div>
+                        <div class="pod-field">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Your Email</label>
+                            <div class="field-bubbles"><span></span><span></span></div>
+                        </div>
+                        <div class="pod-field">
+                            <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+                            <label for="message">Your Message</label>
+                            <div class="field-bubbles"><span></span><span></span></div>
+                        </div>
+                        <button type="submit" class="transmit-button">
+                            <span class="button-sonar"></span>
+                            <span class="button-label">TRANSMIT MESSAGE</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Seabed -->
+    <footer class="seabed">
+        <div class="seabed-content">
+            <div class="footer-creature">🐙</div>
+            <p class="footer-text">Crafted in the depths of creativity</p>
+            <div class="footer-links">
+                <a href="https://github.com/akhilbehara999" target="_blank">💻</a>
+                <a href="https://linkedin.com/in/akhilbehara999" target="_blank">🔗</a>
+                <a href="mailto:akhilbehara97@gmail.com">📧</a>
+            </div>
+            <p class="footer-copyright">© 2025 Pondara Akhil Behara | All Rights Reserved</p>
+        </div>
+        <div class="seabed-sand"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
